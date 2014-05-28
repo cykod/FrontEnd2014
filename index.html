@@ -108,50 +108,38 @@ $(document).ready(function(){
     </div> <!--#trends -->
 
 	<div class="slide" id="what4">
-		<h2>
-			<span class="or-block animate-in">
-                            <strong>The 15%</strong>
-			</span>
-			<span class="or-block animate-in" data-animation="fly-in-left">
-                            <div style='position:relative;'>
-                                <img src='images/ie8_logo.jpg' style='float:left;'/>
-                                IE8 on XP
-                            </div>
-                            <small>(Multiple Fixed Width Layouts)</small>
-			</span>
-			<span class="or-block animate-in" data-animation="fly-in-right">
-				<strong>Responsive</strong> <small>(Multiple Fluid Grid Layouts)</small>
-			</span>
-		</h2>
+            <span class="or-block animate-in">
+                <strong>The 15%</strong>
+            </span>
+            <div class="block animate-in" data-animation="fly-in-left">
+                <img src='images/ie8_logo.jpg' />
+                <h4> IE8 on XP</h4>
+                Basic CSS2.1 (position:fixed, first-child, ...)<br/>Slooow JS<br/>
+                No CSS3 Goodies
+            </div>
+            <div class="block animate-in" data-animation="fly-in-right">
+                <img src='images/android.jpg' />
+                <h4> Android Browser on 2.3</h4>
+                No multi-touch<br/>No SVG<br/>
+                Sloooow Rendering
+            </div>
 	</div>
 
+    <div id="other2" class="slide bullets">
+        <h2>Handling the 15%</h2>
+        <p class='animate-build' data-build="1">Gracefully degrade your CSS3 Whiz-bangs</p>
+        <p class='animate-build' data-build="2">Provide detection + warnings for SVG + Canvas</p>
+        <p class='animate-build' data-build="3">Or, ignore and here from your Grandma</p>
+    </div> 
 
-    <div id="schism" class="slide bullets">
-        <h2>The 15%</h2>
-        <p class='animate-build' data-build="1">IE8 on XP + </p>
-        <p class='animate-build' data-build="2">Chrome and Safari/iOS no longer on same rendering engine</p>
-        <p class='animate-build' data-build="3">Opera on blink</p>
-        <p class='animate-build' data-build="4">Firefox, IE still have own engines</p>
-        <p class='animate-build' data-build="5">Mobile is no longer if-it-runs-on-iOs...</p>
-    </div> <!--#trends -->
+    <div id="other2" class="slide bullets">
+        <h2>Handling the 15%</h2>
+        <p class='animate-build' data-build="1">Gracefully degrade your CSS3 Whiz-bangs</p>
+        <p class='animate-build' data-build="2">Provide detection + warnings for SVG + Canvas</p>
+        <p class='animate-build' data-build="3">Or, ignore and here from your Grandma</p>
+    </div> 
 
-    <div id="second" class="slide">
-        <div class="story">
-            <div class="float-right">
-                <h2>Multiple Backgrounds</h2>
-                <p>The multiple backgrounds applied to this section are moved in a similar way to the first section -- every time the user scrolls down the page by a pixel, the positions of the backgrounds are changed.</p>
-            </div>
-        </div> <!--.story-->
 
-    </div> <!--#second-->
-
-    <div id="third" class="slide">
-        <div class="story">
-            <div class="float-left">
-                <h2>What Happens When JavaScript is Disabled?</h2>
-            </div>
-        </div> <!--.story-->
-    </div> <!--#third-->
 
 </body>
         </html>

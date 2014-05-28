@@ -143,7 +143,12 @@ img {
 	font-size: 3.6rem;
 }
 
-#what4 img { width: auto; }
+
+#what4 h4 { margin:0px; }
+
+#what4 .block { width:750px; margin:0 auto; text-align:left; height:200px; }
+#what4 img { float:left; width:auto; } 
+
 
 #what4 strong {
 	display: block;
