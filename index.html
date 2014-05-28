@@ -38,6 +38,8 @@
 </style>     
 <script type="text/javascript">
 $(document).ready(function(){
+
+    $("a").attr('target','_blank');
 	
 	RepositionNav();
 	
@@ -52,6 +54,7 @@ $(document).ready(function(){
 	});
 
 
+  d3.text("hiring.csv",function(hiringText) { 
         d3.text("responses.csv", function(datasetText) {
 
             var data= d3.csv.parse(datasetText);
@@ -69,11 +72,12 @@ $(document).ready(function(){
 
             var jobs = [ "Myself",  "A Web Consultency", "A Web Startup","A Large Web Company",  "A Non-web company", "A Large Non-web company",""]
             //range(data,"job");
-            console.log(jobs)
             barGraph("#job",data, "job", jobs);
 
 
         });
+
+      });
 
         function range(data,column) {
             var values = data.map(function(d) { return d[column]; });
@@ -166,8 +170,9 @@ $(document).ready(function(){
     <div class="background"></div>
     <ul id="nav">
         <li><a href="#intro" title="Introduction"></a></li>
-        <li><a href="#what4" title="Browsers"></a></li>
-        <li><a href="#tech" title="New Technology"></a></li>
+        <li><a href="#trends" title="Browsers"></a></li>
+        <li><a href="#tech" title="Technology"></a></li>
+        <li><a href="#trends" title="Trends"></a></li>
         <li><a href="#boston" title="Boston Tech"></a></li>
         <li><a href="#hired" title="Getting Hired"></a></li>
     </ul>
@@ -190,7 +195,7 @@ $(document).ready(function(){
     </div>
 	
 
-    <div id="trends" class="slide bullets">
+    <div id="agenda" class="slide bullets">
         <h2>Agenda</h2>
         <p class='animate-build' data-build="1">Usage Trends</p>
         <p class='animate-build' data-build="2">Browsers</p>
@@ -199,7 +204,7 @@ $(document).ready(function(){
     </div> <!--#trends -->
 
 
-    <div id="trends2" class="slide image-slide">
+    <div id="trends" class="slide image-slide">
         <div class='story'>
             <img src='images/desktop.jpg'/>
         </div>
@@ -252,7 +257,7 @@ $(document).ready(function(){
 
 	<div class="slide" id="what4">
             <span class="or-block animate-in">
-                <strong>The 15%</strong>
+                <strong>We are the 10%</strong>
             </span>
             <div class="block animate-in" data-animation="fly-in-left">
                 <img src='images/ie8_logo.jpg' />
@@ -269,20 +274,175 @@ $(document).ready(function(){
 	</div>
 
     <div id="other2" class="slide bullets">
-        <h2>Handling the 15%</h2>
+        <h2>Handling the 10%</h2>
         <p class='animate-build' data-build="1">Gracefully degrade your CSS3 Whiz-bangs</p>
         <p class='animate-build' data-build="2">Provide detection + warnings for SVG + Canvas</p>
         <p class='animate-build' data-build="3">Or, ignore and here from your Grandma</p>
     </div> 
 
     <div id="other2" class="slide bullets">
-        <h2>Handling the 15%</h2>
-        <p class='animate-build' data-build="1">Gracefully degrade your CSS3 Whiz-bangs</p>
-        <p class='animate-build' data-build="2">Provide detection + warnings for SVG + Canvas</p>
-        <p class='animate-build' data-build="3">Or, ignore and here from your Grandma</p>
+        <h2>Technology</h2>
+        <p>(The Fun Stuff)</p>
+    </div> 
+
+    <div id="tech" class="slide image-slide">
+        <div class='story'>
+            <img src='images/mobile.jpg'/>
+        </div>
+    </div>
+
+    <div id="other1" class="slide bullets">
+        <div class='story'>
+          <h2>Canvas - Gimme Pixels</h2>
+          <p class='animate-build' data-build="1">95%+ (IE9+, All Mobile)</p>
+          <p class='animate-build' data-build="2">Hardware accelerated (Except Android 2)</p>
+          <p class='animate-build' data-build="3">Realistic for Full Screen games</p>
+          <p class='animate-build' data-build="4">First-class HTML Citizen (<a href='http://craftymind.com/factory/html5video/CanvasVideo.html'>Video Example</a>)</p>
+        </div>
+    </div> 
+
+    <div id="other2" class="slide bullets">
+        <div class='story'>
+          <h2>SVG - Gimme Vectors</h2>
+          <p class='animate-build' data-build="1">Full vector drawing (<a href='http://bl.ocks.org/mbostock/1256572'>D3 Show reel</a>)</p>
+          <p class='animate-build' data-build="2">Browser-provided scene-graph &amp; pixel-perfect events</p>
+          <p class='animate-build' data-build="3">90%+ (IE9+, Android 4+)</p>
+          <p class='animate-build' data-build="4">CSS Support (Including animations!)</p>
+          <p class='animate-build' data-build="5">Lives in its own DOM</p>
+        </div>
+    </div> 
+
+    <div id="other3" class="slide bullets">
+        <div class='story'>
+          <h2>WebGL - Gimme Triangles</h2>
+          <p class='animate-build' data-build="1">Sibling of the same technology that powers almost all mobile games(OpenGL ES) </p>
+          <p class='animate-build' data-build="2">67%+ (IE11+(!), Chrome Android) <a href='http://webglstats.com/'>source</a></p>
+          <p class='animate-build' data-build="3">No Safari/iOS, but soon? (<a href='http://blog.playcanvas.com/apple-embraces-webgl/'>speculation</a>)</p>
+          <p class='animate-build' data-build="4"><a href='https://www.scirra.com/blog/144/the-great-html5-gaming-performance-test-2014-edition'>HTML5 Gaming Performance</a></p>
+        </div>
+    </div> 
+
+    <div id="other4" class="slide bullets">
+        <div class='story'>
+          <h2>Web Audio - Gimme Sound</h2>
+          <p class='animate-build' data-build="1">A Real sound API suitible for real-time mixing</p>
+          <p class='animate-build' data-build="2"><a href='http://caniuse.com/audio-api'>All but IE</a></p>
+          <p class='animate-build' data-build="3">IE has good, low-latency HTML5 Audio Support though</p>
+          <p class='animate-build' data-build="4">... And, as WebGL taught us</p>
+        </div>
+    </div> 
+
+    <div id="other5" class="slide bullets">
+        <div class='story'>
+          <h2>WebRTC - Gimme Peer-to-peer</h2>
+          <p class='animate-build' data-build="1">Powerful Video and Audio Capture</p>
+          <p class='animate-build' data-build="2">Peer-to-Peer connections</p>
+          <p class='animate-build' data-build="3">Communicating Audio, Video and Data</p>
+          <p class='animate-build' data-build="4">UDP-style unreliable channels</p>
+        </div>
     </div> 
 
 
+    <div id="other3" class="slide bullets">
+        <div class='story'>
+          <h2>More stuffs</h2>
+          <p class='animate-build' data-build="1">Multi-touch - Touchscreen Interfaces</p>
+          <p class='animate-build' data-build="2">GamePad - Joysticks!</p>
+          <p class='animate-build' data-build="3">Vibration - Haptic Feedback!</p>
+          <p class='animate-build' data-build="4">Full-screen - Immersion!</p>
+          <p class='animate-build' data-build="5"><a href='http://mh5gd.com/ch24/orient.html'>Orientation</a> - Rotation Feedback! </p>
+          <p class='animate-build' data-build="6">Geolocation - Hyperlocality! </p>
+          <p class='animate-build' data-build="7">Web Workers - Multi-core-ality</p>
+        </div>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <div class='story'>
+          <h2>ASM.js - Gimme Speed</h2>
+          <p>A Low-level subset of JavaScript (Who cares?)</p>
+        </div>
+    </div> 
+
+    <div id="other7" class="slide bullets">
+        <div class='story'>
+          <iframe width="640" height="360" src="//www.youtube.com/embed/c2uNDlP4RiE" frameborder="0" allowfullscreen></iframe> 
+        </div>
+    </div> 
+
+    <div id="other5" class="slide bullets">
+        <div class='story'>
+          <h2>Debugging</h2>
+          <p class='animate-build' data-build="1">Mobile debugging, finally!</p>
+          <p class='animate-build' data-build="2">An awesome IDE in every browser.</p>
+          <p class='animate-build' data-build="3">With performance, memory, &amp; auditing</p>
+          <p class='animate-build' data-build="4">Favorite features: $0, Highlight, Ctrl-O, Ctrl-F, Conditional Breakpoints.</p>
+        </div>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <h2>Trends</h2>
+        <p>(Semi-Opinionated)</p>
+    </div> 
+
+
+    <div id="other7" class="slide bullets">
+        <div class='story' style='height:600px'>
+          <h2>JavaScript MVC</h2>
+          <script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=react.js,+backbone.js,+ember.js,+angular.js&date=5/2010+49m&cmpt=q&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=800&h=500"></script>
+        </div>
+    </div> 
+
+    <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>JavaScript MVC</h2>
+          <p class='animate-build' data-build="1">Solve the JS Organization Problem (aka jQuery soup)</p>
+          <p class='animate-build' data-build="2">... and the Event Binding problem</p>
+          <p class='animate-build' data-build="3">Hype started with Backbone in 2011</p>
+          <p class='animate-build' data-build="4">jQuery still a component piece</p>
+          <p class='animate-build' data-build="5">Developer mindshare between Backbone, Angular, Ember &amp; React (New!)</p>
+          <p class='animate-build' data-build="6">Learning? Start with jQuery, then Backbone (Beware the Voodoo!)</p>
+        </div>
+    </div> 
+
+    <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>SVG for Data Vis</h2>
+          <p class='animate-build' data-build="1">Right tool for the job</p>
+          <p class='animate-build' data-build="2">Finally Widely supported w/o shims</p>
+          <p class='animate-build' data-build="3">D3.js is the hammer</p>
+          <p class='animate-build' data-build="4">"JavaScript Journalism"</p>
+          <p class='animate-build' data-build="5"><a href='http://time.com/93911/baby-name-predictor/'>Lots</a> <a href='http://www.nytimes.com/interactive/2014/upshot/buy-rent-calculator.html?_r=0'>of</a> <a href='http://visualizing.org/full-screen/56202'>great</a> <a href='http://www.nytimes.com/interactive/2012/11/02/us/politics/paths-to-the-white-house.html'>examples</a>.
+        </div>
+    </div> 
+
+    <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>Post-Responsive</h2>
+          <p class='animate-build' data-build="1">We hold these truths to be self-evident:</p>
+          <p class='animate-build' data-build="2">Sites need mobile experiences</p>
+          <p class='animate-build' data-build="3">There's no guarantee on viewport size</p>
+          <p class='animate-build' data-build="4">Responsiveness is (almost) a given</p>
+          <p class='animate-build' data-build="5">But it's NOT the final, one-size-fits-all solution</p>
+          <p class='animate-build' data-build="6">"Experiential" Design, not just media-queries</p>
+        </div>
+    </div> 
+
+    <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>HTML5 Everywhere</h2>
+          <p class='animate-build' data-build="1">HTML5 (the platform, not the browser technology) has won</p>
+          <p class='animate-build' data-build="2">Browser is the Sandbox VM</p>
+          <p class='animate-build' data-build="3">JavaScript is the new BASIC</p>
+          <p class='animate-build' data-build="4">Very little left you can't do in the browser</p>
+          <p class='animate-build' data-build="5">... But <a href='http://www.forbes.com/sites/ewanspence/2014/04/02/the-mobile-browser-is-dead-long-live-the-app/'>"The Browser is Dead"</a> ... again</p>
+        </div>
+    </div> 
+
+   <div id="other7" class="slide bullets">
+        <div class='story' style='height:405px'>
+          <img src='http://imgs.xkcd.com/comics/installing.png'/>
+        </div>
+    </div> 
 
 </body>
-        </html>
+</html>
