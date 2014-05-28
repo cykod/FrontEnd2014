@@ -80,7 +80,8 @@ $(document).ready(function(){
       });
 
         function range(data,column) {
-            var values = data.map(function(d) { return d[column]; });
+          var values = [];
+          data.map(function(d) { values.concat(d[column].split(",")); });
             return d3.set(values).values();
         }
         
@@ -89,15 +90,16 @@ $(document).ready(function(){
 
             var values = {};
             input.map(function(d) {
-                    var val = d[column];
-                    values[val] = values[val] || 0;
-                    values[val] += 1;
+                var val = d[column];
+                val.split(",").map(function(v2) { 
+                  values[v2] = values[v2] || 0;
+                  values[v2] += 1;
+                });
             });
 
-            console.log(values);
-            console.log(buckets);
-            console.log(values[buckets[0]]);
-
+            //console.log(values);
+            //console.log(buckets);
+            //console.log(values[buckets[0]]);
 
             // A formatter for counts.
             var formatCount = d3.format(",.0f");
@@ -177,15 +179,6 @@ $(document).ready(function(){
         <li><a href="#hired" title="Getting Hired"></a></li>
     </ul>
 
-    <div id='graph1' class='slide'>
-        <h3>Years Experience</h3>
-        <div id='years'></div>
-
-    </div>
-    <div id='graph2' class='slide'>
-        <h3>Job</h3>
-        <div id='job'></div>
-    </div>
 
     <div id="intro" class="slide">
         <div class='story'>
@@ -285,9 +278,13 @@ $(document).ready(function(){
         <p>(The Fun Stuff)</p>
     </div> 
 
+    <div id="other2" class="slide bullets">
+        <h2>Current Status:</h2>
+    </div> 
+
     <div id="tech" class="slide image-slide">
         <div class='story'>
-            <img src='images/mobile.jpg'/>
+            <img src='images/unicorn.jpg'/>
         </div>
     </div>
 
@@ -431,9 +428,9 @@ $(document).ready(function(){
         <div class='story'>
           <h2>HTML5 Everywhere</h2>
           <p class='animate-build' data-build="1">HTML5 (the platform, not the browser technology) has won</p>
-          <p class='animate-build' data-build="2">Browser is the Sandbox VM</p>
-          <p class='animate-build' data-build="3">JavaScript is the new BASIC</p>
-          <p class='animate-build' data-build="4">Very little left you can't do in the browser</p>
+          <p class='animate-build' data-build="2">The prototyping language for all the things</p>
+          <p class='animate-build' data-build="3">Browser is the Sandbox VM (LLVM, ASM.js)</p>
+          <p class='animate-build' data-build="4">JavaScript is the new BASIC</p>
           <p class='animate-build' data-build="5">... But <a href='http://www.forbes.com/sites/ewanspence/2014/04/02/the-mobile-browser-is-dead-long-live-the-app/'>"The Browser is Dead"</a> ... again</p>
         </div>
     </div> 
@@ -444,5 +441,131 @@ $(document).ready(function(){
         </div>
     </div> 
 
+    <div id="other6" class="slide bullets">
+        <h2>Feature parity with Flash from 2007...</h2>
+        <p class='animate-build' data-build="1">...without the browser penetration numbers</p>
+    </div> 
+
+
+    <div id="other6" class="slide bullets">
+        <h2>Boston Job Marketplace</h2>
+    </div> 
+
+    <div id='graph1' class='slide'>
+        <h3>Years Experience</h3>
+        <div id='years'></div>
+    </div>
+
+    <div id='graph2' class='slide'>
+        <h3>Job</h3>
+        <div id='job'></div>
+    </div>
+
+
+    <div id='graph2' class='slide'>
+        <h3>Job</h3>
+        <div id='job'></div>
+    </div>
+
+    <div id="other6" class="slide bullets">
+        <h2>Getting Hired</h2>
+        <p>(YMMV)</p>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <h2>If you're experienced, and have up-to-date skills...</h2>
+        <p>...you should be ok (<a href='http://media.dice.com/wp-content/uploads/2014/04/2014-Q1-Tech-Trends-Link.pdf'>2.7% Nationally</a>)</p>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <h2>If you're a Jr. dev - I'm talking to you</h2>
+    </div> 
+
+   <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>Why Jr's are a tough hire:</h2>
+          <p class='animate-build' data-build="1">Track Record</p>
+          <p class='animate-build' data-build="2">Job Mobility / Millenial Bashing</p>
+          <p class='animate-build' data-build="3">10x Mythology</p>
+          <p class='animate-build' data-build="4">Tech-stack variety</p>
+          <p class='animate-build' data-build="5">Known Quantity</p>
+        </div>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <h2>Simple Solution: Be Awesome</h2>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <h2>Track Record:</h2>
+        <p><a href='http://carl.flax.ie/dothingstellpeople.html'>Do things, tell people</a></p>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <h2>Job Mobility:</h2>
+        <p>Don't come across as selfish. Do your homework.</p>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <h2>10x Mythology:</h2>
+        <p>Plant the seed that that's you: Hackathons, Startup Weekend</p>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <h2>Tech-stack variety</h2>
+        <p>Focus on doing stuff - show you're a quick study (<a href='http://www.lessmilk.com/'>1</a>, <a href='http://jenniferdewalt.com/'>2</a>)</p>
+    </div> 
+
+    <div id="other6" class="slide bullets">
+        <h2>Be a Known Quantity</h2>
+        <p>Network. Don't self-promote, Network.</p>
+    </div> 
+
+   <div id="other7" class="slide bullets">
+        <div class='story' style='height:405px'>
+          <h2>Your Skillset</h2>
+          <img src='images/bedrock-long.png'/>
+        </div>
+    </div> 
+    <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>The Newbie</h2>
+          <p class='animate-build' data-build="1">You're not at as much of a disadvantage as you think.</p>
+          <p class='animate-build' data-build="2">Start with w/ HTML, CSS, then JS, Node</p>
+        </div>
+    </div> 
+
+    <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>The Designer</h2>
+          <p class='animate-build' data-build="1">Add HTML/CSS to your skillset</p>
+          <p class='animate-build' data-build="2">Design in the browser and understand responsive</p>
+          <p class='animate-build' data-build="3">It's all UX these days</p>
+        </div>
+    </div> 
+
+    <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>The Developer</h2>
+          <p class='animate-build' data-build="1">Embrace JavaScript, learn an MVC (or four)</p>
+          <p class='animate-build' data-build="2">Go Full-stack, treat HTML+CSS as a crafts</p>
+          <p class='animate-build' data-build="3">Learn enough design to be dangerous</p>
+        </div>
+    </div> 
+
+    <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>Thanks!</h2>
+          <p>Pascal Rettig @ Alignable.com - We're Hiring!</p>
+        </div>
+    </div> 
+    
+    <div id="other8" class="slide bullets">
+        <div class='story'>
+          <h2>&amp;</h2>
+        </div>
+    </div> 
+    
+    
 </body>
 </html>
